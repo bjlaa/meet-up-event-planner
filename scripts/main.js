@@ -1,3 +1,5 @@
+/*eslint-env node */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route } from 'react-router';
@@ -6,18 +8,18 @@ import { createHistory } from 'history';
 /*
 	Components
 */
-import HomePage from '../components/HomePage.js';
+import Homepage from '../components/HomePage.js';
 import CreateEvent from '../components/createEvent.js';
-import CreateUserAccount from '../components/createUserAccount.js';
-import UserHomePage from '../components/UserHomePage.js';
+import CreateAccount from '../components/createAccount.js';
+import UserPage from '../components/UserPage.js';
 import UserLogin from '../components/UserLogin.js';
 
 var routes = (
 	<Router history={createHistory()}>
 		<Route path="/" component={Homepage} />
 		<Route path="/login" component={UserLogin} />
-		<Route path="/homepage" component={UserHomePage} />
-		<Route path="/createaccount" component={CreateUserAccount} />
+		<Route path="/userpage" component={UserPage} />
+		<Route path="/createaccount" component={CreateAccount} />
 		<Route path="/createevent" component={CreateEvent} />
 	</Router>
 )

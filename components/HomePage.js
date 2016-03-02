@@ -15,6 +15,9 @@ class Homepage extends React.Component {
 					<Link to="/createaccount">
 						<button className="signin">Sign In</button>
 					</Link>
+					<Link to="/userpage">
+						<button className="guest">Try our App as a Guest</button>
+					</Link>					
 					<div className="event-list-all">
 
 					</div>

@@ -6,7 +6,7 @@ class CreateAccount extends React.Component {
 	render() {
 		return(
 			<div className="page">
-				<Backbutton />
+				<Backbutton toggleHomePage={this.props.toggleHomePage}/>
 				<div className="create-account">
 					<p>Create an Account:</p>
 					<form action="">

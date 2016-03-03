@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router';
 import Footer from '../components/Footer.js';
 import Backbutton from '../components/Backbutton.js';
 

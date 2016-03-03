@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router';
 import Footer from '../components/Footer.js';
 
 class Homepage extends React.Component {
@@ -9,18 +8,10 @@ class Homepage extends React.Component {
 				<div className="home">
 					<h1>Meet-Up Event </h1>
 					<h2>Create and manage all your big events!</h2>
-					<Link to="/login">
 						<button className="login">Login</button>
-					</Link>
-					<Link to="/createaccount">
 						<button className="signin">Sign In</button>
-					</Link>
-					<Link to="/userpage">
-						<button className="guest">Try our App as a Guest</button>
-					</Link>					
-					<div className="event-list-all">
-
-					</div>
+						<button className="guest">Try our App as a Guest</button>			
+					<div className="event-list-all"></div>
 				</div>
 				<footer>Coded by Benjamin</footer>
 			</div>

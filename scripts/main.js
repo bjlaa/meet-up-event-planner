@@ -2,8 +2,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router';
-import { createHistory } from 'history';
 
 /*
 	Components
@@ -13,20 +11,37 @@ import CreateEvent from '../components/createEvent.js';
 import CreateAccount from '../components/createAccount.js';
 import UserPage from '../components/UserPage.js';
 import UserLogin from '../components/UserLogin.js';
+import Rebase from 're-base';
 
-var routes = (
-	<Router history={createHistory()}>
-		<Route path="/" component={Homepage} />
-		<Route path="/login" component={UserLogin} />
-		<Route path="/userpage" component={UserPage} />
-		<Route path="/createaccount" component={CreateAccount} />
-		<Route path="/createevent" component={CreateEvent} />
-	</Router>
-)
+/* 
+	Firebase 
+*/
+var base = Rebase.createClass('https://meet-up-eventplanner.firebaseio.com/');
+/*
+componentDidMount {
+	base.syncState(this.store.params.storeId, {
+	context: this,
+	state:'fishes'
+	});
+}
+*/
+class App extends React.Component {
+	render() {
+		return(
+			<div>
+				<Homepage />
+				<CreateAccount />
+				<UserLogin />
+				<UserPage />
+				<CreateEvent />
+			</div>
+		)
+	}
+}
 
 /*
 	Renders to the DOM element with the id "main"
 */
 
 var main= document.querySelector("#main");
-ReactDOM.render(routes, main);
+ReactDOM.render(<App />, main);

@@ -7,7 +7,7 @@ class UserLogin extends React.Component {
 	render() {
 		return(
 			<div className="page">
-				<Backbutton />
+				<Backbutton toggleHomePage={this.props.toggleHomePage} />
 				<div className="user-login">
 					<p>Login:</p>
 					<form action="">

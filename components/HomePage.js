@@ -7,13 +7,15 @@ class Homepage extends React.Component {
 		return(
 			<div className="page">
 				<div className="home">
-					<h1>Meet-Up Event </h1>
-					<h2>Create and manage all your big events!</h2>
-						<button className="login" onClick={this.props.toggleUserLogin}>Login</button>
-						<button className="signin" onClick={this.props.toggleCreateAccount}>Sign In</button>
-						<button className="guest" onClick={this.props.toggleUserPage}>Try our App as a Guest</button>			
-					<div className="event-list-all"></div>
+					<p className="home-title">Meet-Up Event Planner</p>
+					<div className="line-title"></div>
+					<p className="home-sub">Create and manage all your big events!</p>
+					<button className="login" onClick={this.props.toggleUserLogin}>LOGIN</button>
+					<button className="signin" onClick={this.props.toggleCreateAccount}>SIGN IN</button>
+					<button className="guest" onClick={this.props.toggleUserPage}>TRY OUR APP AS A GUEST</button>			
+					<div className="event-list-all">A huge list of events</div>
 				</div>
+				
 				<footer>Coded by Benjamin</footer>
 			</div>
 		)

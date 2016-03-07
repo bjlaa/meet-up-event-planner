@@ -6,7 +6,7 @@ class CreateEvent extends React.Component {
 	render() {
 		return(
 			<div className='page'>
-				<Backbutton />
+				<Backbutton toggleHomePage={this.props.toggleHomePage} />
 				<div className='create-event'>
 					<p>Create an Event:</p>
 					<form action="">

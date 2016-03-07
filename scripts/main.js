@@ -33,14 +33,15 @@ class App extends React.Component {
 			activeUser:{},
 			users: {},
 			events: {},
-			glawie: 1
 		};
 	}
 	toggleHomePage() {
 		this.setState({currentPage :"home"});
 	}
 	toggleCreateAccount() {
-		this.setState({currentPage : "createAccount"});
+
+		this.setState({currentPage: "createAccount"});
+
 	}
 	toggleUserLogin() {
 		this.setState({currentPage : "userLogin"});
@@ -54,19 +55,57 @@ class App extends React.Component {
 
 	render() {
 		var page;
-		if(this.state.currentPage = "home") {
-			page = <Homepage toggleCreateAccount = {this.toggleCreateAccount.bind(this)}
+		
+		var homePageComp = <Homepage toggleCreateAccount = {this.toggleCreateAccount.bind(this)}
 			toggleUserLogin={this.toggleUserLogin.bind(this)} toggleUserPage={this.toggleUserPage.bind(this)} />;
-		} else if(this.state.currentPage = "createAccount") {
-			page = <CreateAccount toggleHomePage={this.toggleHomePage.bind(this)} />;
-		} else if(this.state.currentPage = "userLogin") {
-			page = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)} />;
-		} else if(this.state.currentPage = "userPage") {
-			page = <UserPage toggleHomePage={this.toggleHomePage.bind(this)} />;
-		} else if(this.state.currentPage = "createEvent") {
-			page = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} />;
-		} 
+		
+		var createAccountComp = <CreateAccount toggleHomePage={this.toggleHomePage.bind(this)} />;
+		
+		var userLoginComp = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)} />;
+		
+		var userPageComp = <UserPage toggleHomePage={this.toggleHomePage.bind(this)} />;
+		
+		var createEventComp = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} />;
+		
+		/*if(this.state.currentPage = "home") {
+			page = homePageComp;
 
+		} else if(this.state.currentPage = "createAccount") {
+			page = createAccountComp;
+
+		} else if(this.state.currentPage = "userLogin") {
+			page = userLoginComp;
+
+		} else if(this.state.currentPage = "userPage") {
+			page = userPageComp;
+
+		} else if(this.state.currentPage = "createEvent") {
+			page = createEventComp;
+
+		} else {
+			page = (<div></div>);
+		}
+		*/
+		switch (this.state.currentPage) {
+			case "home":
+				page = homePageComp;
+				break;
+			case "createAccount":
+				page = createAccountComp;
+				break;
+			case "userLogin":
+				page = userLoginComp;
+				break;
+			case "userPage":
+				page = userPageComp;
+				break;
+			case "createEvent":
+				page = createEventComp;
+				break;
+			default:
+				page = <div></div>;
+				break;
+		}
 		return(
 			<div>
 				{page}

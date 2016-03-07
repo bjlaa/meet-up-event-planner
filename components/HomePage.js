@@ -1,9 +1,18 @@
 import React from 'react';
 import Footer from '../components/Footer.js';
+import Event from '../components/Event.js';
 
 class Homepage extends React.Component {
-
 	render() {
+
+		var listEvents = this.props.events.map(function(e) {
+			return (
+				<Event name={e.name} type={e.type} host={e.host} start={e.start}
+				end={e.end} guestlist={e.guestlist} location={e.location} 
+				text={e.text} key={e.key} />
+			)
+		});
+
 		return(
 			<div className="page">
 				<div className="home">
@@ -12,8 +21,11 @@ class Homepage extends React.Component {
 					<p className="home-sub">Create and manage all your big events!</p>
 					<button className="login" onClick={this.props.toggleUserLogin}>LOGIN</button>
 					<button className="signin" onClick={this.props.toggleCreateAccount}>SIGN IN</button>
-					<button className="guest" onClick={this.props.toggleUserPage}>TRY OUR APP AS A GUEST</button>			
-					<div className="event-list-all">A huge list of events</div>
+					<button className="guest" onClick={this.props.toggleUserPage}>TRY OUR APP AS A GUEST</button>
+					<div className="list-events">
+						{listEvents}
+					</div>
+								
 				</div>
 				
 				<footer>Coded by Benjamin</footer>

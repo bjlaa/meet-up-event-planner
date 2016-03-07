@@ -12,6 +12,8 @@ import CreateAccount from '../components/createAccount.js';
 import UserPage from '../components/UserPage.js';
 import UserLogin from '../components/UserLogin.js';
 import Rebase from 're-base';
+import reactMixin from 'react-mixin';
+import Catalyst from 'react-catalyst';
 
 /* 
 	Firebase 
@@ -30,9 +32,13 @@ class App extends React.Component {
 */
 		this.state = {
 			currentPage : "home",
-			activeUser:{},
+			activeUser: {},
+			eventDisplayed: {},
 			users: {},
-			events: {},
+			events: [
+				{name:"Website Grand Opening", type:"Diner Party", host:"Yours Truly", start:"Noon",
+				end:"Midnight", guestlist:"No guestlist.", location:"Warschaeuer Strasse, Berlin", text:"Welcome welcome!", key:1}
+			],
 		};
 	}
 	toggleHomePage() {
@@ -52,12 +58,18 @@ class App extends React.Component {
 	toggleCreateEvent() {
 		this.setState({currentPage : "createEvent"});
 	}
+	/*
+	toggleEvent(keyEvent) {
+		var 
+		this.setState
+	}*/
 
 	render() {
 		var page;
 		
 		var homePageComp = <Homepage toggleCreateAccount = {this.toggleCreateAccount.bind(this)}
-			toggleUserLogin={this.toggleUserLogin.bind(this)} toggleUserPage={this.toggleUserPage.bind(this)} />;
+			toggleUserLogin={this.toggleUserLogin.bind(this)} toggleUserPage={this.toggleUserPage.bind(this)} 
+			events={this.state.events} />;
 		
 		var createAccountComp = <CreateAccount toggleHomePage={this.toggleHomePage.bind(this)} />;
 		
@@ -67,25 +79,6 @@ class App extends React.Component {
 		
 		var createEventComp = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} />;
 		
-		/*if(this.state.currentPage = "home") {
-			page = homePageComp;
-
-		} else if(this.state.currentPage = "createAccount") {
-			page = createAccountComp;
-
-		} else if(this.state.currentPage = "userLogin") {
-			page = userLoginComp;
-
-		} else if(this.state.currentPage = "userPage") {
-			page = userPageComp;
-
-		} else if(this.state.currentPage = "createEvent") {
-			page = createEventComp;
-
-		} else {
-			page = (<div></div>);
-		}
-		*/
 		switch (this.state.currentPage) {
 			case "home":
 				page = homePageComp;
@@ -113,6 +106,8 @@ class App extends React.Component {
 		)
 	}
 }
+
+reactMixin.onClass(App, Catalyst.LinkedStateMixin);
 
 /*
 	Renders to the DOM element with the id "main"

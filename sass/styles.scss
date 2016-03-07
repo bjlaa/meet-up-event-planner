@@ -57,18 +57,19 @@ footer {
 	width: 60%;
 	margin-left: 20%;
 	height: 5%;
-	color:$bluedark;
+	color:white;
 	text-align: center;
 	font-size: 120%;
 	font-weight: 200;
 	font-family: $font;
-	background-color: white;
+	background-color: transparent;
 	border-left: solid 1px #765364;
 	border-right: solid 1px #765364;
 }
 button {
 	text-decoration: none;
 	padding: 2%;
+	border-radius: 10px;
 	border: 1px outset $palerose;
 	background-color: $bluedark;
 	color: white;
@@ -90,15 +91,13 @@ button:hover{
 */
 .home {
 	background-color: transparent;
-	width: 60%;
-	margin-left: 20%;
-	height: 80%;
+	width: 80%;
+	margin-left: 10%;
+	height: 70%;
 	text-align: center;
 	font-family: $font;
 	font-weight: 200;
 	font-size: 200%;
-	border-left: solid 1px #765364;
-	border-right: solid 1px #765364;
 }
 .home-title {
 	color: $bluedark;
@@ -114,6 +113,25 @@ button:hover{
 	color: #860007;
 	font-size: 80%;
 }
-.event-list-all {
-
+.list-events {
+	height: 200px;
+	overflow: auto;
 }
+
+.event {
+	cursor: pointer;
+	width: 33.33%;
+	background: rgba(255, 255, 255, 0.5);
+	font-size: 60%;
+	font-family: $font;
+	.name-event{
+		text-align: left;
+		font-weight: 400;
+	}
+}
+
+
+
+
+
+

@@ -31,17 +31,19 @@ class App extends React.Component {
 		});
 */
 		this.state = {
-			currentPage : "home",
+			currentPage : "createEvent",
 			activeUser: {},
 			eventDisplayed: {},
 			users: {},
 			events: [
 				{name:"Website Grand Opening", type:"Diner Party", host:"Yours Truly", start:"Noon",
-				end:"Midnight", guestlist:"No guestlist.", location:"Warschaeuer Strasse, Berlin", text:"Welcome welcome!", key:1}
+				end:"Midnight", guestlist:"No guestlist.", location:"Warschaeuer Strasse, Berlin", message:"Welcome welcome!", key:1}
 			],
 		};
 	}
+
 	toggleHomePage() {
+
 		this.setState({currentPage :"home"});
 	}
 	toggleCreateAccount() {
@@ -58,26 +60,31 @@ class App extends React.Component {
 	toggleCreateEvent() {
 		this.setState({currentPage : "createEvent"});
 	}
-	/*
 	toggleEvent(keyEvent) {
-		var 
-		this.setState
-	}*/
+		console.log("event n°"+keyEvent);
+	}
+
+	addEvent(newEvent) {
+		
+		var newEventsArray = this.state.events.slice();
+		newEventsArray.push(newEvent);
+		this.setState({events: newEventsArray});
+	}
 
 	render() {
-		var page;
+		var page; 
 		
 		var homePageComp = <Homepage toggleCreateAccount = {this.toggleCreateAccount.bind(this)}
 			toggleUserLogin={this.toggleUserLogin.bind(this)} toggleUserPage={this.toggleUserPage.bind(this)} 
-			events={this.state.events} />;
+			events={this.state.events} toggleEvent={this.toggleEvent.bind(this)}  />;
 		
 		var createAccountComp = <CreateAccount toggleHomePage={this.toggleHomePage.bind(this)} />;
 		
 		var userLoginComp = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)} />;
 		
-		var userPageComp = <UserPage toggleHomePage={this.toggleHomePage.bind(this)} />;
+		var userPageComp = <UserPage toggleHomePage={this.toggleHomePage.bind(this)} toggleCreateEvent={this.toggleCreateEvent.bind(this)} events={this.state.events} />;
 		
-		var createEventComp = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} />;
+		var createEventComp = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} addEvent={this.addEvent.bind(this)} />;
 		
 		switch (this.state.currentPage) {
 			case "home":
@@ -86,6 +93,7 @@ class App extends React.Component {
 			case "createAccount":
 				page = createAccountComp;
 				break;
+
 			case "userLogin":
 				page = userLoginComp;
 				break;

@@ -8,7 +8,7 @@ class UserHomePage extends React.Component {
 			<div className="page">
 				<Backbutton toggleHomePage={this.props.toggleHomePage} />
 				<div className="user-home">
-					<button>Create an Event:</button>
+					<button onClick={this.props.toggleCreateEvent}>Create an Event:</button>
 					<button>Sign Out</button>
 					<div className="event-list-user">
 

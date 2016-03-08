@@ -3,15 +3,18 @@ import Footer from '../components/Footer.js';
 import Event from '../components/Event.js';
 
 class Homepage extends React.Component {
+	eventClick() {
+		console.log("testytest");
+	}
 	render() {
-
-		var listEvents = this.props.events.map(function(e) {
+		var handleClick = this.eventClick.bind(this);
+		var listEvents = this.props.events.map(function(e) {		
 			return (
-				<Event name={e.name} type={e.type} host={e.host} start={e.start}
+				<Event onClick= {this.props.toggleEvent.bind(this,e.key)} name={e.name} type={e.type} host={e.host} start={e.start}
 				end={e.end} guestlist={e.guestlist} location={e.location} 
-				text={e.text} key={e.key} />
+				message={e.message} key={e.key} />
 			)
-		});
+		}, this);
 
 		return(
 			<div className="page">
@@ -26,8 +29,7 @@ class Homepage extends React.Component {
 						{listEvents}
 					</div>
 								
-				</div>
-				
+				</div> 	
 				<footer>Coded by Benjamin</footer>
 			</div>
 		)

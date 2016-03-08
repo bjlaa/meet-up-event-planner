@@ -31,10 +31,12 @@ class App extends React.Component {
 		});
 */
 		this.state = {
-			currentPage : "createEvent",
+			currentPage : "createAccount",
 			activeUser: {},
 			eventDisplayed: {},
-			users: {},
+			users: [
+				{name: "guest", email: "guest", password:"guest", birthdate: null}
+			],
 			events: [
 				{name:"Website Grand Opening", type:"Diner Party", host:"Yours Truly", start:"Noon",
 				end:"Midnight", guestlist:"No guestlist.", location:"Warschaeuer Strasse, Berlin", message:"Welcome welcome!", key:1}
@@ -71,6 +73,18 @@ class App extends React.Component {
 		this.setState({events: newEventsArray});
 	}
 
+	addUser(newUser) {
+		var newUsersArray = this.state.users.slice();
+		newUsersArray.push(newUser);
+		this.setState({users: newUsersArray});
+		this.setState({activeUser: newUser});
+	}
+
+	pushActiveUser(userConnected) {
+		this.setState({activeUser: userConnected});			
+	}
+
+
 	render() {
 		var page; 
 		
@@ -78,7 +92,7 @@ class App extends React.Component {
 			toggleUserLogin={this.toggleUserLogin.bind(this)} toggleUserPage={this.toggleUserPage.bind(this)} 
 			events={this.state.events} toggleEvent={this.toggleEvent.bind(this)}  />;
 		
-		var createAccountComp = <CreateAccount toggleHomePage={this.toggleHomePage.bind(this)} />;
+		var createAccountComp = <CreateAccount toggleHomePage={this.toggleHomePage.bind(this)} addUser={this.addUser.bind(this)} users={this.state.users}/>;
 		
 		var userLoginComp = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)} />;
 		

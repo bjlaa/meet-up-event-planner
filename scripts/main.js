@@ -31,7 +31,7 @@ class App extends React.Component {
 		});
 */
 		this.state = {
-			currentPage : "createAccount",
+			currentPage : "home",
 			activeUser: {},
 			eventDisplayed: {},
 			users: [
@@ -56,8 +56,9 @@ class App extends React.Component {
 	toggleUserLogin() {
 		this.setState({currentPage : "userLogin"});
 	}
-	toggleUserPage() {
+	toggleUserPage(connectingUser) {
 		this.setState({currentPage : "userPage"});
+		this.setState({activeUser: connectingUser})
 	}
 	toggleCreateEvent() {
 		this.setState({currentPage : "createEvent"});
@@ -77,29 +78,49 @@ class App extends React.Component {
 		var newUsersArray = this.state.users.slice();
 		newUsersArray.push(newUser);
 		this.setState({users: newUsersArray});
-		this.setState({activeUser: newUser});
+		this.toggleUserPage(newUser);
 	}
 
-	pushActiveUser(userConnected) {
-		this.setState({activeUser: userConnected});			
+	signOut() {
+		this.setState({ activeUser: {}});
+		this.toggleHomePage()
 	}
 
 
 	render() {
-		var page; 
+		var page;
+
+		/*
+			Main components with props
+		*/ 
 		
-		var homePageComp = <Homepage toggleCreateAccount = {this.toggleCreateAccount.bind(this)}
-			toggleUserLogin={this.toggleUserLogin.bind(this)} toggleUserPage={this.toggleUserPage.bind(this)} 
-			events={this.state.events} toggleEvent={this.toggleEvent.bind(this)}  />;
+		var homePageComp = <Homepage 
+								toggleCreateAccount = {this.toggleCreateAccount.bind(this)}
+								toggleUserLogin={this.toggleUserLogin.bind(this)} 
+								toggleUserPage={this.toggleUserPage.bind(this)} 
+								events={this.state.events} 
+								toggleEvent={this.toggleEvent.bind(this)} 
+								activeUser={this.state.activeUser} 
+								users={this.state.users} />;
 		
-		var createAccountComp = <CreateAccount toggleHomePage={this.toggleHomePage.bind(this)} addUser={this.addUser.bind(this)} users={this.state.users}/>;
+		var createAccountComp = <CreateAccount 
+									toggleHomePage={this.toggleHomePage.bind(this)} 
+									addUser={this.addUser.bind(this)} 
+									users={this.state.users} />;
 		
 		var userLoginComp = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)} />;
 		
-		var userPageComp = <UserPage toggleHomePage={this.toggleHomePage.bind(this)} toggleCreateEvent={this.toggleCreateEvent.bind(this)} events={this.state.events} />;
+		var userPageComp = <UserPage toggleHomePage={this.toggleHomePage.bind(this)} 
+								toggleCreateEvent={this.toggleCreateEvent.bind(this)} 
+								events={this.state.events} 
+								activeUser={this.state.activeUser} 
+								signOut={this.signOut.bind(this)} />;
 		
-		var createEventComp = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} addEvent={this.addEvent.bind(this)} />;
-		
+		var createEventComp = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} 
+									addEvent={this.addEvent.bind(this)} />;
+		/*
+			Conditional rendering of the main components
+		*/
 		switch (this.state.currentPage) {
 			case "home":
 				page = homePageComp;

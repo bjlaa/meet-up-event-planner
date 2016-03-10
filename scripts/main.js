@@ -35,11 +35,15 @@ class App extends React.Component {
 			activeUser: {},
 			eventDisplayed: {},
 			users: [
-				{name: "guest", email: "guest", password:"guest", birthdate: null}
+				{name: "guest", email: "guest", password:"guest", birthdate: null, key: 0}
 			],
 			events: [
-				{name:"Website Grand Opening", type:"Diner Party", host:"Yours Truly", start:"Noon",
-				end:"Midnight", guestlist:"No guestlist.", location:"Warschaeuer Strasse, Berlin", message:"Welcome welcome!", key:1}
+				{name:"Website Grand Opening", type:"Diner Party", 
+				host:"Yours Truly", start:"Noon",
+				end:"Midnight", guestlist:"No guestlist.", 
+				location:"Warschaeuer Strasse, Berlin", 
+				message:"Welcome welcome!", key:1, 
+				creator: 0}
 			],
 		};
 	}
@@ -72,6 +76,7 @@ class App extends React.Component {
 		var newEventsArray = this.state.events.slice();
 		newEventsArray.push(newEvent);
 		this.setState({events: newEventsArray});
+		this.toggleUserPage();
 	}
 
 	addUser(newUser) {
@@ -87,9 +92,9 @@ class App extends React.Component {
 	}
 
 
-	render() {
-		var page;
 
+	render() {
+		
 		/*
 			Main components with props
 		*/ 
@@ -108,19 +113,26 @@ class App extends React.Component {
 									addUser={this.addUser.bind(this)} 
 									users={this.state.users} />;
 		
-		var userLoginComp = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)} />;
+		var userLoginComp = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)}
+								toggleUserPage={this.toggleUserPage.bind(this)}
+								users={this.state.users} />;
 		
 		var userPageComp = <UserPage toggleHomePage={this.toggleHomePage.bind(this)} 
 								toggleCreateEvent={this.toggleCreateEvent.bind(this)} 
 								events={this.state.events} 
 								activeUser={this.state.activeUser} 
-								signOut={this.signOut.bind(this)} />;
+								signOut={this.signOut.bind(this)}
+								toggleEvent={this.toggleEvent.bind(this)}  />;
 		
 		var createEventComp = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} 
-									addEvent={this.addEvent.bind(this)} />;
+									addEvent={this.addEvent.bind(this)}
+									activeUser={this.state.activeUser} />;
 		/*
 			Conditional rendering of the main components
 		*/
+
+		var page;
+
 		switch (this.state.currentPage) {
 			case "home":
 				page = homePageComp;
@@ -149,9 +161,9 @@ class App extends React.Component {
 		)
 	}
 }
-
+/*
 reactMixin.onClass(App, Catalyst.LinkedStateMixin);
-
+*/
 /*
 	Renders to the DOM element with the id "main"
 */

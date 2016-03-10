@@ -15,7 +15,8 @@ class CreateEvent extends React.Component {
 			guestlist: this.refs.guestlist.value,
 			location: this.refs.location.value,
 			message: this.refs.message.value,
-			key: timestamp
+			key: timestamp,
+			creator: this.props.activeUser.key
 		}
 		this.props.addEvent(newEvent);
 	}

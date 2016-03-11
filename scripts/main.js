@@ -24,15 +24,11 @@ var base = Rebase.createClass('https://meet-up-eventplanner.firebaseio.com/');
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-/*
-		base.syncState(this.store.params.storeId, {
-		context: this,
-		state:'events'
-		});
-*/
+
 		this.state = {
 			currentPage : "home",
 			activeUser: {},
+			activeEvent:{},
 			eventDisplayed: {},
 			users: [
 				{name: "guest", email: "guest", password:"guest", birthdate: null, key: 0}
@@ -46,6 +42,26 @@ class App extends React.Component {
 				creator: 0}
 			],
 		};
+	}
+	componentDidMount() {
+		/*
+		base.syncState("/", {
+		context: this,
+		state:'events'
+		});
+		*/
+
+		var localStorageRef = localStorage.getItem('user'+this.state.activeUser.key);
+		if(localStorageRef) {
+			this.setState({
+				activeUser: JSON.parse(localStorageRef),
+				currentPage: "userPage"
+			});
+		}	
+	}
+	componentWillUpdate(nextProps, nextState) {
+		localStorage.setItem("user" + this.state.activeUser.key, 
+			JSON.stringify(nextState.activeUser));
 	}
 
 	toggleHomePage() {
@@ -68,7 +84,7 @@ class App extends React.Component {
 		this.setState({currentPage : "createEvent"});
 	}
 	toggleEvent(keyEvent) {
-		console.log("event n°"+keyEvent);
+
 	}
 
 	addEvent(newEvent) {
@@ -90,8 +106,9 @@ class App extends React.Component {
 		this.setState({ activeUser: {}});
 		this.toggleHomePage()
 	}
-
-
+	goBack() {
+		this.toggleUserPage(this.state.activeUser);
+	}
 
 	render() {
 		
@@ -124,9 +141,12 @@ class App extends React.Component {
 								signOut={this.signOut.bind(this)}
 								toggleEvent={this.toggleEvent.bind(this)}  />;
 		
-		var createEventComp = <CreateEvent toggleHomePage={this.toggleHomePage.bind(this)} 
+		var createEventComp = <CreateEvent goBack={this.goBack.bind(this)}
 									addEvent={this.addEvent.bind(this)}
 									activeUser={this.state.activeUser} />;
+
+
+
 		/*
 			Conditional rendering of the main components
 		*/

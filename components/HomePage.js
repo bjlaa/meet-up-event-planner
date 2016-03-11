@@ -7,13 +7,17 @@ class Homepage extends React.Component {
 		console.log("testytest");
 	}
 	render() {
-		var handleClick = this.eventClick.bind(this);
-		var listEvents = this.props.events.map(function(e) {		
+		
+		var listEvents = this.props.events.map(function(e) {
+			var handleClick = this.eventClick.bind(this);		
 			return (
-				<Event onClick= {this.props.toggleEvent.bind(this,e.key)} 
-						name={e.name} type={e.type} host={e.host} start={e.start}
-						end={e.end} guestlist={e.guestlist} location={e.location} 
-						message={e.message} key={e.key} />
+				<div key={e.key}>
+					<Event  onClick={handleClick}
+							name={e.name} type={e.type} host={e.host} start={e.start}
+							end={e.end} guestlist={e.guestlist} location={e.location} 
+							message={e.message} key={e.key} />
+				</div>
+
 			)
 		}, this);
 

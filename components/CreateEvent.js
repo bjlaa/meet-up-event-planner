@@ -23,25 +23,72 @@ class CreateEvent extends React.Component {
 	render() {
 		return(
 			<div className='page'>
-				<Backbutton toggleHomePage={this.props.toggleHomePage} />
+				<button onClick={this.props.goBack}>Cancel</button>
 				<div className='create-event'>
 					<p>Create an Event:</p>
 					<form action="" onSubmit={this.postEvent.bind(this)}>
-						<input name='name' ref='name' type="text" placeholder='Type in the name of your event' required/>
+
+						<label htmlFor="name">Name Your Event
+							<input name='name' ref='name' type="text" 
+							placeholder='Type in the name of your event' required autofocus/>
+						</label>
+						
 						<br/>
-						<input name="type" ref='type' type="text" placeholder="Type in the type of the event" required />
+
+						<label htmlFor="type">Type of Event
+							<input list="type-event" type="list" name="type" ref='type'/>
+							<datalist id="type-event" 
+							placeholder="Type in the type of the event" required>
+								<option value="Party"></option>
+								<option value="Birthday"></option>
+								<option value="Conference"></option>
+								<option value="Diner"></option>
+								<option value="Lunch"></option>
+							</datalist>
+						</label>
+
 						<br/>
-						<input name="host" ref='host' type="text" placeholder="Type in the host of the event" required />
+
+						<label htmlFor="host">Who'll be the host?
+							<input name="host" ref='host' type="text" 
+							placeholder="Type in the host of the event" required />
+						</label>
+						
 						<br/>
-						<input name="start" ref='start' type="datetime" required />
+
+						<label htmlFor="start">When will it start?
+							<input name="start" ref='start' type="datetime" required />
+						</label>
+						
 						<br/>
-						<input name="end" ref='end' type="datetime" required />
+
+						<label htmlFor="end">And finish?
+							<input name="end" ref='end' type="datetime" required />
+						</label>
+						
 						<br/>
-						<input name="guestlist" ref='guestlist' type="text" placeholder="Type in the person you'd like to invite" />
+
+						<label htmlFor="guestlist">Who's on the guestlist?
+							<input name="guestlist" ref='guestlist' type="text" 
+							placeholder="Type in the person you'd like to invite" />
+						</label>
+						
 						<br/>
-						<input name="location" ref='location' type="text" placeholder="Type in the location of your event" />
+
+						<label htmlFor="location">Where will it take place?
+							<input name="location" ref='location' type="text" 
+							placeholder="Type in the location of your event" />
+						</label>
+						
 						<br/>
-						<textarea name="message" ref="message" id="" cols="30" rows="10" placeholder="Optional message to the guests with additional info about the event"></textarea>
+
+						<label htmlFor="message">Presentation message:
+							<textarea name="message" ref="message" id="" 
+							cols="30" rows="10" placeholder="Optional message to the 
+							guests with additional info about the event">
+							</textarea>
+						</label>
+						
 						<input type="submit" value="Create Your Event"/>
 					</form>
 				</div>

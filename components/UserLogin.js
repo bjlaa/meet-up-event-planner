@@ -30,7 +30,7 @@ class UserLogin extends React.Component {
 				<div className="user-login">
 					<p>Login:</p>
 					<form action="" onSubmit={this.userExist.bind(this)} >
-						<input ref="loginEmail" type="text" name="email" placeholder="Type in your email" required/>
+						<input ref="loginEmail" type="text" name="email" placeholder="Type in your email" required autofocus/>
 						<input ref="loginPassword" type="text" name="password" placeholder="Type in your password" required/>
 						<input type="submit" name="submit" value="Log In" />
 					</form>

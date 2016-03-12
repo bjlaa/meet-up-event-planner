@@ -12,4 +12,59 @@
 	text-align: center;
 	font-size: 250%;
 	color: white;
+
+	@media(max-width:767px){
+	font-size: 150%;	
+	}
+}
+.form-create-account{
+	width: 100%;
+}
+.label-create-name {
+	margin-top: 2%;
+	color: white;
+	display: block;
+	.create-name {
+		width: 50%;
+		float: right;
+		@media(max-width:767px){
+			width: 100%;	
+		}
+	}
+}
+.label-create-email {
+	margin-top: 2%;
+	color: white;
+	display: block;
+	.create-email {
+		width:50%;
+		float: right;
+		@media(max-width:767px){
+			width: 100%;	
+		}
+	}
+}
+.label-create-password {
+	margin-top: 2%;
+	color: white;
+	display: block;
+	.create-password {
+		width:50%;
+		float: right;
+		@media(max-width:767px){
+			width: 100%;	
+		}
+	}
+}
+.label-create-birthdate {
+	margin-top: 2%;
+	color: white;
+	display: block;
+	.create-birthdate {
+		width: 50%;
+		float: right;
+		@media(max-width:767px){
+			width: 100%;	
+		}
+	}
 }

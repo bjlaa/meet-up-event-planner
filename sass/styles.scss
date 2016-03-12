@@ -56,6 +56,7 @@ p {
 footer {
 	width: 60%;
 	margin-left: 20%;
+	margin-top: 40%;
 	height: 5%;
 	color:white;
 	text-align: center;
@@ -96,19 +97,19 @@ input {
 }
 
 ::-webkit-input-placeholder {
-   color: white;
+   color: grey;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: white;  
+   color: grey;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: white;  
+   color: grey;  
 }
 
 :-ms-input-placeholder {  
-   color: white;  
+   color: grey;  
 }
 
 .event {
@@ -123,8 +124,25 @@ input {
 	}
 }
 
+.submit-button {
+	background-color: $darkblue;
+	height: 40px;
+	float: right;
+	margin-top: 2%;
+		@media(max-width:767px){
+			width: 100%;	
+		}
+}
+.submit-button:hover {
+	cursor: pointer;
+	background-color: white;
+	color: $darkblue;
+	transition: all .3s ease-in-out;
+}
+
 @import "homepage";
 @import "createaccount";
+@import "login";
 
 
 

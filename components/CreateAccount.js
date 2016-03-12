@@ -21,32 +21,32 @@ class CreateAccount extends React.Component {
 				<Backbutton toggleHomePage={this.props.toggleHomePage} />
 				<div className="create-account">
 					<p className="title-account">Create Your Account:</p>
-					<form action="" onSubmit={this.postUser.bind(this)}>
-						<label htmlFor="name">
+					<form className="form-create-account" action="" onSubmit={this.postUser.bind(this)}>
+						<label className="label-create-name" htmlFor="name">
 							What's Your Name?
 							<input ref="name" className="create-name" type="text" 
 							name="name" placeholder="Type in your full name" 
 							required autofocus/>
 						</label>
-						
-						<label htmlFor="email">
+						<br/>
+						<label className="label-create-email" htmlFor="email">
 							And Your Email?
 							<input ref="email" className="create-email" type="text" 
 							name="email" placeholder="Type in your email" required/>
 						</label>
-						
-						<label htmlFor="password">
+						<br/>
+						<label className="label-create-password" htmlFor="password">
 							Please choose a password
 							<input ref="password" className="create-password" 
 							type="text" name="password" placeholder="Type in your password" required/>
 						</label>
-						
-						<label htmlFor="birthdate">
+						<br/>
+						<label className="label-create-birthdate" htmlFor="birthdate">
 						What's Your Birthdate?
 							<input ref="birthdate" className="create-birthdate" 
 							type="date" name="birthdate" />
 						</label>
-						
+						<br/>
 						<input className="submit-button" type="submit" value="Create User Account" />
 					</form>
 				</div>

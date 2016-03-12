@@ -28,11 +28,21 @@ class UserLogin extends React.Component {
 			<div className="page">
 				<Backbutton toggleHomePage={this.props.toggleHomePage} />
 				<div className="user-login">
-					<p>Login:</p>
+					<p className="login-title" >Login:</p>
 					<form action="" onSubmit={this.userExist.bind(this)} >
-						<input ref="loginEmail" type="text" name="email" placeholder="Type in your email" required autofocus/>
-						<input ref="loginPassword" type="text" name="password" placeholder="Type in your password" required/>
-						<input type="submit" name="submit" value="Log In" />
+						<label htmlFor="email">Email Address:
+							<input className="login-email" ref="loginEmail" type="text" 
+							name="email" placeholder="Type in your email" required 
+							autofocus/>
+						</label>
+						<br/>
+						<label htmlFor="password">Password:
+							<input className="login-password" ref="loginPassword" 
+							type="text" name="password" 
+							placeholder="Type in your password" required/>
+						</label>
+						<br/>
+						<input className="submit-button" type="submit" name="submit" value="Log In" />
 					</form>
 				</div>
 				<Footer />

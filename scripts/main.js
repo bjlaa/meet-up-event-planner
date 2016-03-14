@@ -16,7 +16,6 @@ import reactMixin from 'react-mixin';
 import Catalyst from 'react-catalyst';
 
 
-
 /* 
 	Firebase 
 */
@@ -45,7 +44,7 @@ class App extends React.Component {
 			],
 		};
 	}
-
+/*
 	componentDidMount() {
 		/*
 		base.syncState("/", {
@@ -53,7 +52,7 @@ class App extends React.Component {
 		state:'events'
 		});
 		*/
-
+/*
 		var localStorageRef = localStorage.getItem('user'+this.state.activeUser.key);
 		if(localStorageRef) {
 			this.setState({
@@ -66,7 +65,7 @@ class App extends React.Component {
 		localStorage.setItem("user" + this.state.activeUser.key, 
 			JSON.stringify(nextState.activeUser));
 	}
-
+*/
 	toggleHomePage() {
 
 		this.setState({currentPage :"home"});
@@ -90,12 +89,13 @@ class App extends React.Component {
 
 	}
 
+
 	addEvent(newEvent) {
 		
 		var newEventsArray = this.state.events.slice();
 		newEventsArray.push(newEvent);
 		this.setState({events: newEventsArray});
-		this.toggleUserPage();
+		this.toggleUserPage(this.state.activeUser);
 	}
 
 	addUser(newUser) {
@@ -108,7 +108,6 @@ class App extends React.Component {
 	signOut() {
 		this.setState({ activeUser: {}});
 		this.toggleHomePage()
-		localStorage.clear();
 	}
 	goBack() {
 		this.toggleUserPage(this.state.activeUser);

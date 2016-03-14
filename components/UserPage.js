@@ -10,13 +10,13 @@ class UserPage extends React.Component {
 		var userListEvents = events.map(function(e) {	
 			if (e.creator == userKey) {
 				return (
-					<Event onClick= {this.props.toggleEvent.bind(this,e.key)} 
+					<Event  
 							name={e.name} type={e.type} host={e.host} start={e.start}
 							end={e.end} guestlist={e.guestlist} location={e.location} 
 							message={e.message} key={e.key} />
 				)				
 			}
-		}, this);
+		});
 		return(
 			<div className="page">
 				<div className="user-page">

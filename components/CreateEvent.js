@@ -21,13 +21,13 @@ class CreateEvent extends React.Component {
 		this.props.addEvent(newEvent);
 	}
 	render() {
-		return(
-			<div className='page'>
+		return(	<div className='page'>
 				
 				<div className='create-event'>
-					
+					<button className='create-button' onClick={this.props.goBack}>Cancel</button>
 					<p className="create-event-title" >Create an Event:</p>
 					<form action="" onSubmit={this.postEvent.bind(this)}>
+
 						<div  className="create-name-event">
 							<label htmlFor="name">Name Your Event
 								<input  name='name' ref='name' type="text" 
@@ -56,23 +56,21 @@ class CreateEvent extends React.Component {
 								placeholder="Type in the host of the event" required />
 							</label>
 						</div>
-					
-						<div className="create-start">
-							<label htmlFor="start">When will it start?
-								<input name="start" ref='start' type="datetime" required />
-							</label>
-						</div>
-
-						<div className="create-end-event">
-							<label htmlFor="end">And finish?
-								<input name="end" ref='end' type="datetime" required />
-							</label>
-						</div>
-
-						<div className="create-location">
+						<div className="createLocationOfEvent">
 							<label htmlFor="location">Where will it take place?
 								<input name="location" ref='location' type="text" 
 								placeholder="Type in the location of your event" />
+							</label>
+						</div>					
+						<div className="create-start">
+							<label htmlFor="start">When will it start?
+								<input name="start" ref='start' type="datetime-local" />
+							</label>
+						</div>
+
+						<div className="createEndEvent">
+							<label htmlFor="end">And finish?
+								<input name="end" ref='end' type="datetime-local" />
 							</label>
 						</div>
 
@@ -84,7 +82,8 @@ class CreateEvent extends React.Component {
 						</div>
 
 						<div className="create-message">
-							<label htmlFor="message">Presentation message:
+							<label htmlFor="message">
+								<p className="message-title">Presentation message:</p>
 								<textarea name="message" ref="message" id="" 
 								cols="30" rows="10" placeholder="Optional message to the 
 								guests with additional info about the event">
@@ -95,10 +94,11 @@ class CreateEvent extends React.Component {
 						
 						<input className="submit-button" type="submit" value="Create Your Event"/>
 					</form>
-					<button className='create-button' onClick={this.props.goBack}>Cancel</button>
+					
 				</div>
 			</div>
-		)
+
+				)
 	}
 }
 

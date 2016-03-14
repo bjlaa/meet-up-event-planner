@@ -13,25 +13,21 @@
 		margin-bottom: 5%;
 	}
 	.create-name-event {
-		width: 50%;
-		display: inline-block;
+		width: 100%;
 		margin-bottom: 2%;
 		input {
 			margin-left: 5%;
 			float: right;
+			width: 50%;
+		}
+		@media(max-width:767px){
+			input {
+				width: 100%;
+			}
 		}
 	}
 	.create-type-event {
-		width: 50%;
-		display: inline-block;
-		input {
-			margin-left: 5%;
-			float: right;			
-		}
-		@media(max-width:767px){
-			width: 100%;
-			display: block;
-		}
+		@extend .create-name-event;
 	}
 	.create-host {
 		@extend .create-name-event;
@@ -39,42 +35,50 @@
 	.create-start {
 		@extend .create-name-event;
 	}
-	.create-end-event {
-		width: 50%;
-		display: inline-block;
-		margin-bottom: 2%;
-		input {
-			margin-left: 5%;
-			float: right;
-		}
+	.createEndEvent {
+		@extend .create-name-event;
 	}
-	.create-location {
-		width: 50%;
-		display: inline-block;
-		margin-bottom: 2%;
-		input {
-			margin-left: 5%;
-			float: right;
-		}		
+	.createLocationOfEvent {
+		@extend .create-name-event;
 	}
 	.create-guestlist {
-		width: 100%;
-		display: block;
-		margin-bottom: 2%;
+		@extend .create-name-event;
+	}
+	.message-title {
+		width: 38%;
+		display: inline-block;
+		padding: 0;
 	}
 	.create-message {
 		width: 100%;
 		display: block;
+		textarea {
+			border-radius: 10px;
+			border: 2px solid $darkblue;
+			width: 60%;
+			font-size: 80%;
+			font-family: $font;
+			float: right;
+			color: $darkblue;
+		}
+		@media(max-width:767px){
+			textarea {
+				width: 100%;
+			}
+		}
 	}
 	.submit-button {
 		width: 50%;
 		display: block;
+		margin-right: 50%;
+		margin-top: 4%;
 	}
 }
 .create-button {
 	background-color: red;
 	margin-left: 1%;
 	display: block;
+	transform: translateY(50%);
 }
 .create-button:hover {
 	background-color: white;

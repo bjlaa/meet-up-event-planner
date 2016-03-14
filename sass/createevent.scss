@@ -1,0 +1,83 @@
+/*
+	Create Event Component
+*/
+.create-event {
+	font-size: 150%;
+	color: white;
+	font-family: $font;
+	width: 70%;
+	margin-left: 15%;
+	.create-event-title {
+		font-size: 200%;
+		text-align: center;
+		margin-bottom: 5%;
+	}
+	.create-name-event {
+		width: 50%;
+		display: inline-block;
+		margin-bottom: 2%;
+		input {
+			margin-left: 5%;
+			float: right;
+		}
+	}
+	.create-type-event {
+		width: 50%;
+		display: inline-block;
+		input {
+			margin-left: 5%;
+			float: right;			
+		}
+		@media(max-width:767px){
+			width: 100%;
+			display: block;
+		}
+	}
+	.create-host {
+		@extend .create-name-event;
+	}
+	.create-start {
+		@extend .create-name-event;
+	}
+	.create-end-event {
+		width: 50%;
+		display: inline-block;
+		margin-bottom: 2%;
+		input {
+			margin-left: 5%;
+			float: right;
+		}
+	}
+	.create-location {
+		width: 50%;
+		display: inline-block;
+		margin-bottom: 2%;
+		input {
+			margin-left: 5%;
+			float: right;
+		}		
+	}
+	.create-guestlist {
+		width: 100%;
+		display: block;
+		margin-bottom: 2%;
+	}
+	.create-message {
+		width: 100%;
+		display: block;
+	}
+	.submit-button {
+		width: 50%;
+		display: block;
+	}
+}
+.create-button {
+	background-color: red;
+	margin-left: 1%;
+	display: block;
+}
+.create-button:hover {
+	background-color: white;
+	color: red;
+	transition: all .3s ease-in-out;	
+}

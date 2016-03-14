@@ -1,0 +1,98 @@
+/*
+	Userpage Component
+*/
+
+.user-page {
+	font-family: $font;
+	font-size: 150%;
+	color: white;
+	.user-title {
+		color: white;
+		font-size: 300%;
+		text-align: center;
+		@media(max-width:767px){
+			font-size: 150%;
+		}
+	}
+	.button-event {
+		width: 20%;
+		@media(max-width:767px){
+			width: 50%;
+		}
+	}
+	.button-signout {
+		background-color: red;
+		margin-left: 1%;
+		@media(max-width:767px){
+			width: 40%;
+		}
+
+	}
+	.button-signout:hover {
+		background-color: white;
+		color: red;
+		transition: all .3s ease-in-out;
+	}
+	.events-title {
+		font-size: 200%;
+		@media(max-width: 767px){
+			font-size: 100%;
+		}
+	}
+	.event {
+		color: $darkblue;
+		width: 90%;
+		margin-left: 3%;
+		padding-right: 2%;
+		padding-left: 2%;
+		.name-event {
+			font-size: 140%;
+			font-weight: 500;
+			width: 33.3%;
+			display: inline-block;
+			margin-bottom: 1%;
+			padding-top: 2%;
+			@media(max-width: 767px){
+				font-size: 120%;
+				width: 100%;
+			}
+		}
+		.host-event {
+			width: 33.3%;
+			display: inline-block;
+			margin-bottom: 1%;
+			@media(max-width: 767px){
+				width: 50%;
+			}
+		}
+		.location-event,
+		.type-event,
+		.start-event,
+		.end-event {
+			@extend .host-event;
+			@media(max-width:767px){
+				width: 100%;
+			}
+		}
+		.type-event {
+			@media(max-width: 767px){
+				width: 50%;
+			}			
+		}
+		.start-event,
+		.end-event {
+			@media(max-width:767px){
+				width: 50%;
+				display: inline-block;
+			}
+		}
+		.guestlist-event {
+			margin-bottom: 1%;
+		}
+		.message-event {
+			font-size: 110%;
+			padding-bottom: 2%;
+		}
+	}
+
+}

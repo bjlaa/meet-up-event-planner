@@ -19,10 +19,12 @@ class UserPage extends React.Component {
 		}, this);
 		return(
 			<div className="page">
-				<div className="user-home">
-					<button onClick={this.props.toggleCreateEvent}>Create an Event:</button>
-					<button onClick={this.props.signOut} >Sign Out</button>
+				<div className="user-page">
+				<p className="user-title">Welcome {this.props.activeUser.name}!</p>
+					<button className="button-event" onClick={this.props.toggleCreateEvent}>Create an Event:</button>
+					<button className="button-signout" onClick={this.props.signOut} >Sign Out</button>
 					<div className="event-list-user">
+						<p className="events-title">My Events:</p>
 						{userListEvents}
 					</div>
 				</div>

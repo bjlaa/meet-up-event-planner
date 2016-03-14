@@ -114,7 +114,7 @@ input {
 
 .event {
 	cursor: pointer;
-	width: 33.33%;
+	width: 100%;
 	background: rgba(255, 255, 255, 0.5);
 	font-size: 60%;
 	font-family: $font;
@@ -143,6 +143,8 @@ input {
 @import "homepage";
 @import "createaccount";
 @import "login";
+@import "userpage";
+@import "createevent";
 
 
 

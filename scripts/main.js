@@ -15,6 +15,8 @@ import Rebase from 're-base';
 import reactMixin from 'react-mixin';
 import Catalyst from 'react-catalyst';
 
+
+
 /* 
 	Firebase 
 */
@@ -43,6 +45,7 @@ class App extends React.Component {
 			],
 		};
 	}
+
 	componentDidMount() {
 		/*
 		base.syncState("/", {
@@ -105,6 +108,7 @@ class App extends React.Component {
 	signOut() {
 		this.setState({ activeUser: {}});
 		this.toggleHomePage()
+		localStorage.clear();
 	}
 	goBack() {
 		this.toggleUserPage(this.state.activeUser);

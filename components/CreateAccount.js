@@ -44,6 +44,7 @@ class CreateAccount extends React.Component {
 							And Your Email?*
 							<input ref="email" className="create-email" type="text" 
 							name="email" placeholder="Type in your email" required
+							pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
 							onBlur={this.validateInput.bind(this)} />
 							<p ref="erroremail" className="error-message" >*Field is required.</p>
 						</label>

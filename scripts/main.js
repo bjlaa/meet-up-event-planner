@@ -42,6 +42,7 @@ class App extends React.Component {
 				message:"Welcome welcome!", key:1, 
 				creator: 0}
 			],
+			validation: ""
 		};
 	}
 /*
@@ -112,6 +113,12 @@ class App extends React.Component {
 	goBack() {
 		this.toggleUserPage(this.state.activeUser);
 	}
+	validateInput(e) {
+		this.setState({validation: "Field is required"})
+	}
+
+
+
 
 	render() {
 		
@@ -131,7 +138,9 @@ class App extends React.Component {
 		var createAccountComp = <CreateAccount 
 									toggleHomePage={this.toggleHomePage.bind(this)} 
 									addUser={this.addUser.bind(this)} 
-									users={this.state.users} />;
+									users={this.state.users}
+									validation={this.state.validation} 
+									validateInput={this.validateInput.bind(this)} />;
 		
 		var userLoginComp = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)}
 								toggleUserPage={this.toggleUserPage.bind(this)}

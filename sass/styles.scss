@@ -57,7 +57,7 @@ p {
 footer {
 	width: 60%;
 	margin-left: 20%;
-	margin-top: 40%;
+	margin-top: 20%;
 	height: 5%;
 	color:white;
 	text-align: center;
@@ -123,6 +123,7 @@ input {
 	width: 90%;
 	font-size: 60%;
 	font-family: $font;
+	border-top: 1px solid $darkblue;
 
 	.name-event {
 		color: $darkblue;
@@ -184,6 +185,9 @@ input {
 		text-align: left;
 	}
 }
+.event:first-child {
+	border-top: none;
+}
 
 .submit-button {
 	background-color: $darkblue;
@@ -200,6 +204,10 @@ input {
 	background-color: white;
 	color: $darkblue;
 	transition: all .3s ease-in-out;
+}
+.error-message {
+	color: red;
+	font-size: 16px;
 }
 
 @import "homepage";

@@ -3,8 +3,10 @@ import Footer from '../components/Footer.js';
 import Backbutton from '../components/Backbutton.js';
 
 class CreateAccount extends React.Component {
+
 	postUser(e) {
 		e.preventDefault();
+		
 		var timestamp = (new Date()).getTime();
 		var newUser = {
 			name: this.refs.name.value,
@@ -15,6 +17,7 @@ class CreateAccount extends React.Component {
 		}
 		this.props.addUser(newUser);
 	}
+	
 	render() {
 		return(
 			<div className="page">
@@ -23,26 +26,27 @@ class CreateAccount extends React.Component {
 					<p className="title-account">Create Your Account:</p>
 					<form className="form-create-account" action="" onSubmit={this.postUser.bind(this)}>
 						<label className="label-create-name" htmlFor="name">
-							What's Your Name?
+							What's Your Name?*
 							<input ref="name" className="create-name" type="text" 
 							name="name" placeholder="Type in your full name" 
-							required autofocus/>
+							required autofocus onBlur={this.props.validateInput.bind(this)}/>
+							<p className="error-message" >{this.props.validation}</p>
 						</label>
 						<br/>
 						<label className="label-create-email" htmlFor="email">
-							And Your Email?
+							And Your Email?*
 							<input ref="email" className="create-email" type="text" 
 							name="email" placeholder="Type in your email" required/>
 						</label>
 						<br/>
 						<label className="label-create-password" htmlFor="password">
-							Please choose a password
+							Please choose a password*
 							<input ref="password" className="create-password" 
 							type="text" name="password" placeholder="Type in your password" required/>
 						</label>
 						<br/>
 						<label className="label-create-birthdate" htmlFor="birthdate">
-						What's Your Birthdate?
+						What's Your Birthdate? (Optional)
 							<input ref="birthdate" className="create-birthdate" 
 							type="date" name="birthdate" />
 						</label>

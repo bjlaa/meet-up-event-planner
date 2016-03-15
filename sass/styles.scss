@@ -3,7 +3,7 @@
 */
 $font: Helvetica Neue, Arial, sans-serif;
 $darkblue: #3A5971;
-$transblue: rgba(58, 89, 113, 0.6);
+$transblue: rgba(58, 89, 113, 0.8);
 $paleblue: #6D95B3;
 /*
 	General Classes
@@ -91,8 +91,8 @@ button:hover{
 }
 
 input {
-	height: 30px;
-	border-color: $darkblue;
+	height: 40px;
+	border: 1px solid $darkblue;
 	background-color: rgba(255, 255, 255, 0.3);
 	color: $darkblue;
 	border-radius: 10px;

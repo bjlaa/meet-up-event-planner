@@ -6,6 +6,8 @@
 	font-family: $font;
 	font-size: 150%;
 	color: white;
+	width: 70%;
+	margin-left: 15%;
 	.user-title {
 		color: white;
 		font-size: 200%;
@@ -21,7 +23,7 @@
 		}
 	}
 	.button-signout {
-		background-color: #801515;
+		background-color: rgba(128, 21, 21, .6);
 		margin-left: 1%;
 		@media(max-width:767px){
 			width: 40%;

@@ -4,7 +4,14 @@ import Backbutton from '../components/Backbutton.js';
 
 
 class UserLogin extends React.Component {
-
+	validateInput(e) {
+		var element ="error"+e.target.name;
+		if(e.target.value == "") {
+			this.refs[element].style.visibility = "visible";
+		} else {
+			this.refs[element].style.visibility = "hidden";
+		}	
+	}
 	userExist(e) {
 		e.preventDefault();
 		var refEmail = this.refs.loginEmail.value;
@@ -33,13 +40,16 @@ class UserLogin extends React.Component {
 						<label htmlFor="email">Email Address:
 							<input className="login-email" ref="loginEmail" type="text" 
 							name="email" placeholder="Type in your email" required 
-							autofocus/>
+							autofocus onBlur={this.validateInput.bind(this)} />
+							<p ref="erroremail" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>
 						<label htmlFor="password">Password:
 							<input className="login-password" ref="loginPassword" 
 							type="text" name="password" 
-							placeholder="Type in your password" required/>
+							placeholder="Type in your password" required
+							onBlur={this.validateInput.bind(this)} />
+							<p ref="errorpassword" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>
 						<input className="submit-button" type="submit" name="submit" value="Log In" />

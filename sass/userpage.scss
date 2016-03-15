@@ -8,7 +8,7 @@
 	color: white;
 	.user-title {
 		color: white;
-		font-size: 300%;
+		font-size: 200%;
 		text-align: center;
 		@media(max-width:767px){
 			font-size: 150%;
@@ -21,7 +21,7 @@
 		}
 	}
 	.button-signout {
-		background-color: red;
+		background-color: #801515;
 		margin-left: 1%;
 		@media(max-width:767px){
 			width: 40%;
@@ -30,7 +30,7 @@
 	}
 	.button-signout:hover {
 		background-color: white;
-		color: red;
+		color: #801515;
 		transition: all .3s ease-in-out;
 	}
 	.events-title {

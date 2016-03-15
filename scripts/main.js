@@ -113,9 +113,7 @@ class App extends React.Component {
 	goBack() {
 		this.toggleUserPage(this.state.activeUser);
 	}
-	validateInput(e) {
-		this.setState({validation: "Field is required"})
-	}
+
 
 
 
@@ -139,8 +137,7 @@ class App extends React.Component {
 									toggleHomePage={this.toggleHomePage.bind(this)} 
 									addUser={this.addUser.bind(this)} 
 									users={this.state.users}
-									validation={this.state.validation} 
-									validateInput={this.validateInput.bind(this)} />;
+									validation={this.state.validation} />;
 		
 		var userLoginComp = <UserLogin toggleHomePage={this.toggleHomePage.bind(this)}
 								toggleUserPage={this.toggleUserPage.bind(this)}

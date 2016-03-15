@@ -3,7 +3,14 @@ import Footer from '../components/Footer.js';
 import Backbutton from '../components/Backbutton.js';
 
 class CreateAccount extends React.Component {
-
+	validateInput(e) {
+		var element ="error"+e.target.name;
+		if(e.target.value == "") {
+			this.refs[element].style.visibility = "visible";
+		} else {
+			this.refs[element].style.visibility = "hidden";
+		}	
+	}
 	postUser(e) {
 		e.preventDefault();
 		
@@ -17,7 +24,7 @@ class CreateAccount extends React.Component {
 		}
 		this.props.addUser(newUser);
 	}
-	
+
 	render() {
 		return(
 			<div className="page">
@@ -29,20 +36,24 @@ class CreateAccount extends React.Component {
 							What's Your Name?*
 							<input ref="name" className="create-name" type="text" 
 							name="name" placeholder="Type in your full name" 
-							required autofocus onBlur={this.props.validateInput.bind(this)}/>
-							<p className="error-message" >{this.props.validation}</p>
+							required autofocus onBlur={this.validateInput.bind(this)}/>
+							<p ref="errorname" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>
 						<label className="label-create-email" htmlFor="email">
 							And Your Email?*
 							<input ref="email" className="create-email" type="text" 
-							name="email" placeholder="Type in your email" required/>
+							name="email" placeholder="Type in your email" required
+							onBlur={this.validateInput.bind(this)} />
+							<p ref="erroremail" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>
 						<label className="label-create-password" htmlFor="password">
 							Please choose a password*
 							<input ref="password" className="create-password" 
-							type="text" name="password" placeholder="Type in your password" required/>
+							type="text" name="password" placeholder="Type in your password" required
+							onBlur={this.validateInput.bind(this)} />
+							<p ref="errorpassword" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>
 						<label className="label-create-birthdate" htmlFor="birthdate">

@@ -20,6 +20,14 @@ class CreateEvent extends React.Component {
 		}
 		this.props.addEvent(newEvent);
 	}
+	validateInput(e) {
+		var element ="error"+e.target.name;
+		if(e.target.value == "") {
+			this.refs[element].style.visibility = "visible";
+		} else {
+			this.refs[element].style.visibility = "hidden";
+		}	
+	}
 	render() {
 		return(	<div className='page'>
 				
@@ -29,16 +37,19 @@ class CreateEvent extends React.Component {
 					<form action="" onSubmit={this.postEvent.bind(this)}>
 
 						<div  className="create-name-event">
-							<label htmlFor="name">Name Your Event
+							<label htmlFor="name">Name Your Event*
 								<input  name='name' ref='name' type="text" 
-								placeholder='Type in the name of your event' required autofocus/>
+								placeholder='Type in the name of your event' required autofocus
+								onBlur={this.validateInput.bind(this)} />
+								<p ref="errorname" className="error-message">Field is required.</p>
 							</label>
 						</div>
 
 						
 						<div className="create-type-event">
-							<label htmlFor="type">Type of Event
-								<input list="type-event" type="list" name="type" ref='type'/>
+							<label htmlFor="type">Type of Event*
+								<input list="type-event" type="list" name="type" ref='type' required 
+								onBlur={this.validateInput.bind(this)}/>
 								<datalist id="type-event" 
 								placeholder="Type in the type of the event" required>
 									<option value="Party"></option>
@@ -47,43 +58,54 @@ class CreateEvent extends React.Component {
 									<option value="Diner"></option>
 									<option value="Lunch"></option>
 								</datalist>
+								<p ref="errortype" className="error-message">Field is required.</p>
 							</label>
 						</div>
 
 						<div className="create-host">
-							<label htmlFor="host">Who'll be the host?
+							<label htmlFor="host">Who'll be the host?*
 								<input name="host" ref='host' type="text" 
-								placeholder="Type in the host of the event" required />
+								placeholder="Type in the host of the event" required 
+								onBlur={this.validateInput.bind(this)} />
+								<p ref="errorhost" className="error-message">Field is required.</p>
 							</label>
 						</div>
 						<div className="createLocationOfEvent">
-							<label htmlFor="location">Where will it take place?
+							<label htmlFor="location">Where will it take place?*
 								<input name="location" ref='location' type="text" 
-								placeholder="Type in the location of your event" />
+								placeholder="Type in the location of your event" required 
+								onBlur={this.validateInput.bind(this)} />
+								<p ref="errorlocation" className="error-message">Field is required.</p>
 							</label>
 						</div>					
 						<div className="create-start">
-							<label htmlFor="start">When will it start?
-								<input name="start" ref='start' type="datetime-local" />
+							<label htmlFor="start">When will it start?*
+								<input name="start" ref='start' type="datetime-local" required
+								onBlur={this.validateInput.bind(this)} />
+								<p ref="errorstart" className="error-message">Field is required.</p>
 							</label>
 						</div>
 
 						<div className="createEndEvent">
-							<label htmlFor="end">And finish?
-								<input name="end" ref='end' type="datetime-local" />
+							<label htmlFor="end">And finish?*
+								<input name="end" ref='end' type="datetime-local" required
+								onBlur={this.validateInput.bind(this)} />
+								<p ref="errorend" className="error-message">Field is required.</p>
 							</label>
 						</div>
 
 						<div className="create-guestlist">
 							<label htmlFor="guestlist">Who's on the guestlist?
 								<input name="guestlist" ref='guestlist' type="text" 
-								placeholder="Type in the person you'd like to invite" />
+								placeholder="Type in the person you'd like to invite" 
+								onBlur={this.validateInput.bind(this)} />
+								<p ref="errorguestlist" className="error-message">Field is required.</p>
 							</label>
 						</div>
 
 						<div className="create-message">
 							<label htmlFor="message">
-								<p className="message-title">Presentation message:</p>
+								<p className="message-title">Let your guest know a bit more about your event*</p>
 								<textarea name="message" ref="message" id="" 
 								cols="30" rows="10" placeholder="Optional message to the 
 								guests with additional info about the event">

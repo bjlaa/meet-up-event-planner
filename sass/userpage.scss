@@ -18,13 +18,15 @@
 	}
 	.button-event {
 		width: 20%;
+		margin: 0;
 		@media(max-width:767px){
-			width: 50%;
+			width: 59%;
 		}
 	}
 	.button-signout {
 		background-color: rgba(128, 21, 21, .6);
 		margin-left: 1%;
+		margin-bottom: 0;
 		@media(max-width:767px){
 			width: 40%;
 		}

@@ -21,7 +21,7 @@ import Catalyst from 'react-catalyst';
 */
 var base = Rebase.createClass('https://meet-up-eventplanner.firebaseio.com/');
 
-
+ 
 class App extends React.Component {
 	constructor(props) {
 		super(props);

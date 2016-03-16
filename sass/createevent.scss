@@ -5,20 +5,28 @@
 	font-size: 150%;
 	color: white;
 	font-family: $font;
-	width: 70%;
-	margin-left: 15%;
+	width: 60%;
+	margin-left: 20%;
+	@media(max-width:767px){
+		font-size: 100%;
+	}
 	.create-event-title {
 		font-size: 200%;
 		text-align: center;
-		margin-bottom: 5%;
+		padding-top: 0;
+		@media(max-width:767px){
+			white-space: nowrap;
+			font-size: 150%;
+		}
+
 	}
 	.create-name-event {
 		width: 100%;
-		margin-bottom: 2%;
+		height: 100%;
 		input {
 			margin-left: 5%;
 			float: right;
-			width: 50%;
+			width: 31%;
 		}
 		@media(max-width:767px){
 			input {
@@ -48,6 +56,9 @@
 		width: 38%;
 		display: inline-block;
 		padding: 0;
+		@media(max-width:767px){
+			width: 100%;
+		}
 	}
 	.create-message {
 		width: 100%;
@@ -55,8 +66,8 @@
 		textarea {
 			border-radius: 10px;
 			border: 2px solid $darkblue;
-			width: 60%;
-			font-size: 80%;
+			width: 40%;
+			font-size: 14px;
 			font-family: $font;
 			float: right;
 			color: $darkblue;
@@ -70,9 +81,12 @@
 	.submit-button {
 		width: 50%;
 		display: block;
-		margin-right: 50%;
-		margin-top: 4%;
+		margin-bottom: 50px;
+		@media(max-width:767px){
+			width: 100%;
+		}
 	}
+
 }
 .create-button {
 	background-color:  rgba(128, 21, 21, .6);

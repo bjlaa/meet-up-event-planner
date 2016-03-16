@@ -3,6 +3,9 @@ import Footer from '../components/Footer.js';
 import Backbutton from '../components/Backbutton.js';
 
 class CreateAccount extends React.Component {
+	componentDidMount() {
+		this.refs.name.focus();
+	}
 	validateInput(e) {
 		var element ="error"+e.target.name;
 		if(e.target.value == "") {
@@ -42,9 +45,8 @@ class CreateAccount extends React.Component {
 						<br/>
 						<label className="label-create-email" htmlFor="email">
 							And Your Email?*
-							<input ref="email" className="create-email" type="text" 
+							<input ref="email" className="create-email" type="email" 
 							name="email" placeholder="Type in your email" required
-							pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
 							onBlur={this.validateInput.bind(this)} />
 							<p ref="erroremail" className="error-message" >*Field is required.</p>
 						</label>
@@ -52,7 +54,7 @@ class CreateAccount extends React.Component {
 						<label className="label-create-password" htmlFor="password">
 							Please choose a password*
 							<input ref="password" className="create-password" 
-							type="text" name="password" placeholder="Type in your password" required
+							type="password" name="password" placeholder="Type in your password" required
 							onBlur={this.validateInput.bind(this)} />
 							<p ref="errorpassword" className="error-message" >*Field is required.</p>
 						</label>

@@ -3,6 +3,9 @@ import Footer from '../components/Footer.js';
 import Backbutton from '../components/Backbutton.js';
 
 class CreateEvent extends React.Component {
+	componentDidMount() {
+		this.refs.name.focus();
+	}
 	postEvent(e) {
 		e.preventDefault();
 		var timestamp = (new Date()).getTime();
@@ -30,9 +33,9 @@ class CreateEvent extends React.Component {
 	}
 	render() {
 		return(	<div className='page'>
-				
+				<button className='create-button' onClick={this.props.goBack}>Cancel</button>
 				<div className='create-event'>
-					<button className='create-button' onClick={this.props.goBack}>Cancel</button>
+					
 					<p className="create-event-title" >Create an Event:</p>
 					<form action="" onSubmit={this.postEvent.bind(this)}>
 
@@ -49,9 +52,10 @@ class CreateEvent extends React.Component {
 						<div className="create-type-event">
 							<label htmlFor="type">Type of Event*
 								<input list="type-event" type="list" name="type" ref='type' required 
-								onBlur={this.validateInput.bind(this)}/>
+								onBlur={this.validateInput.bind(this)}
+								placeholder="Type in the type of the event" />
 								<datalist id="type-event" 
-								placeholder="Type in the type of the event" required>
+								 required>
 									<option value="Party"></option>
 									<option value="Birthday"></option>
 									<option value="Conference"></option>
@@ -95,20 +99,20 @@ class CreateEvent extends React.Component {
 						</div>
 
 						<div className="create-guestlist">
-							<label htmlFor="guestlist">Who's on the guestlist?
+							<label htmlFor="guestlist">Who's on the guestlist?*
 								<input name="guestlist" ref='guestlist' type="text" 
-								placeholder="Type in the person you'd like to invite" 
-								onBlur={this.validateInput.bind(this)} />
+								placeholder="Persons you'd like to invite" 
+								onBlur={this.validateInput.bind(this)} required />
 								<p ref="errorguestlist" className="error-message">Field is required.</p>
 							</label>
 						</div>
 
 						<div className="create-message">
 							<label htmlFor="message">
-								<p className="message-title">Let your guest know a bit more about your event*</p>
+								<p className="message-title">Let your guests know a bit more about your event*</p>
 								<textarea name="message" ref="message" id="" 
 								cols="30" rows="10" placeholder="Optional message to the 
-								guests with additional info about the event">
+								guests with additional info about the event...">
 								</textarea>
 							</label>
 						</div>

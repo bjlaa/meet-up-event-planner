@@ -13,6 +13,7 @@ body,
 #main {
 	width: 100%;
 	height: 100%;
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -44,10 +45,9 @@ a {
 	}
 }
 body {
-	width: 100%;
-	height: 100%;
-	background: linear-gradient($paleblue, transparent) no-repeat,
-				url(../css/city.jpg) no-repeat;
+	background: linear-gradient($paleblue, transparent) no-repeat  fixed,
+                url(../css/city.jpg) no-repeat,;
+
 }
 p {
 	margin: 0;
@@ -93,27 +93,33 @@ button:hover{
 input {
 	height: 40px;
 	border: 1px solid $darkblue;
-	background-color: rgba(255, 255, 255, 0.3);
-	color: $darkblue;
+	background-color: rgba(255, 255, 255, 0.5);
+	color: black;
 	border-radius: 10px;
-	font-size: 60%;
+	font-size: 14px;
 	text-decoration:none;
+}
+input:valid{
+	box-shadow: 0 0 2px 1px green;
+}
+input:invalid{
+	box-shadow: 0 0 2px 1px red;
 }
 
 ::-webkit-input-placeholder {
-   color: grey;
+   color: rgba(35, 34, 34,.9);
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: grey;  
+   color: rgba(35, 34, 34,1);
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: grey;  
+   color: rgba(35, 34, 34,1);
 }
 
 :-ms-input-placeholder {  
-   color: grey;  
+   color: rgba(35, 34, 34,1);
 }
 
 .event {
@@ -125,7 +131,7 @@ input {
 	width: 90%;
 	font-size: 60%;
 	font-family: $font;
-	border-top: 1px solid $darkblue;
+	border-top: 2px solid $darkblue;
 
 	.name-event {
 		color: $darkblue;
@@ -147,7 +153,7 @@ input {
 		margin-bottom: 1%;
 		text-align: left;
 		@media(max-width: 767px){
-			width: 50%;
+			width: 100%;
 		}
 	}
 	.location-event {
@@ -216,10 +222,14 @@ input {
 	color: $darkblue;
 	transition: all .3s ease-in-out;
 }
+.submit-button:valid {
+	box-shadow: none;
+}
 .error-message {
 	color: #801515;
 	font-size: 16px;
 	visibility: hidden;
+	padding: 0;
 }
 
 @import "homepage";

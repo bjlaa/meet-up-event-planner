@@ -36,7 +36,9 @@ class UserLogin extends React.Component {
 		}
 	}
 	
+	
 	render() {
+
 		return(
 			<div className="page">
 				<Backbutton toggleHomePage={this.props.toggleHomePage} />
@@ -47,6 +49,7 @@ class UserLogin extends React.Component {
 							<input className="login-email" ref="loginEmail" type="email" 
 							name="email" placeholder="Type in your email" required 
 							autofocus onBlur={this.validateInput.bind(this)} />
+							<div className="checkmark"></div>
 							<p ref="erroremail" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>
@@ -55,6 +58,7 @@ class UserLogin extends React.Component {
 							type="password" name="password" 
 							placeholder="Type in your password" required
 							onBlur={this.validateInput.bind(this)} />
+							<div className="checkmark"></div>
 							<p ref="errorpassword" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>

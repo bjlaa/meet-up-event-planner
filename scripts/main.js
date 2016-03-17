@@ -17,6 +17,8 @@ import Catalyst from 'react-catalyst';
 
 
 
+
+
 /* 
 	Firebase 
 
@@ -46,28 +48,15 @@ class App extends React.Component {
 			validation: ""
 		};
 	}
-/*
-	componentDidMount() {
+
+	componentWillMount() {
 		/*
-		base.syncState("/", {
-		context: this,
-		state:'events'
-		});
-		*/
-/*
-		var localStorageRef = localStorage.getItem('user'+this.state.activeUser.key);
-		if(localStorageRef) {
-			this.setState({
-				activeUser: JSON.parse(localStorageRef),
-				currentPage: "userPage"
-			});
-		}	
+			Firebase
+		
+		this.bindAsArray(new Firebase("https://meet-up-eventplanner.firebaseio.com/"), "events");
+		*/		
 	}
-	componentWillUpdate(nextProps, nextState) {
-		localStorage.setItem("user" + this.state.activeUser.key, 
-			JSON.stringify(nextState.activeUser));
-	}
-*/
+
 	toggleHomePage() {
 
 		this.setState({currentPage :"home"});
@@ -98,6 +87,15 @@ class App extends React.Component {
 		newEventsArray.push(newEvent);
 		this.setState({events: newEventsArray});
 		this.toggleUserPage(this.state.activeUser);
+		
+		/*
+			Firebase
+		
+		this.firebaseRefs["events"].push({
+			text: this.state.text
+		});
+		this.setState({text:""});
+		*/
 	}
 
 	addUser(newUser) {
@@ -133,7 +131,7 @@ class App extends React.Component {
 								toggleEvent={this.toggleEvent.bind(this)} 
 								activeUser={this.state.activeUser} 
 								users={this.state.users} />;
-		
+	
 		var createAccountComp = <CreateAccount 
 									toggleHomePage={this.toggleHomePage.bind(this)} 
 									addUser={this.addUser.bind(this)} 
@@ -191,9 +189,9 @@ class App extends React.Component {
 		)
 	}
 }
-/*
-reactMixin.onClass(App, Catalyst.LinkedStateMixin);
-*/
+
+reactMixin.onClass(App, ReactFireMixin);
+
 /*
 	Renders to the DOM element with the id "main"
 */

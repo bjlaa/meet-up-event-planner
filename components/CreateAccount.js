@@ -21,7 +21,7 @@ class CreateAccount extends React.Component {
 		var newUser = {
 			name: this.refs.name.value,
 			email: this.refs.email.value,
-			password: this.refs.email.value,
+			password: this.refs.password.value,
 			bithdate: this.refs.birthdate.value,
 			key: timestamp
 		}
@@ -40,6 +40,7 @@ class CreateAccount extends React.Component {
 							<input ref="name" className="create-name" type="text" 
 							name="name" placeholder="Type in your full name" 
 							required autofocus onBlur={this.validateInput.bind(this)}/>
+							<div className="checkmark"></div>
 							<p ref="errorname" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>
@@ -48,6 +49,7 @@ class CreateAccount extends React.Component {
 							<input ref="email" className="create-email" type="email" 
 							name="email" placeholder="Type in your email" required
 							onBlur={this.validateInput.bind(this)} />
+							<div className="checkmark"></div>
 							<p ref="erroremail" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>
@@ -56,6 +58,7 @@ class CreateAccount extends React.Component {
 							<input ref="password" className="create-password" 
 							type="password" name="password" placeholder="Type in your password" required
 							onBlur={this.validateInput.bind(this)} />
+							<div className="checkmark"></div>
 							<p ref="errorpassword" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>

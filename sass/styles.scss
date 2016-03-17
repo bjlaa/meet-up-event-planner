@@ -90,6 +90,7 @@ button:hover{
 	transition: all .3s ease-in-out;
 }
 
+
 input {
 	height: 40px;
 	border: 1px solid $darkblue;
@@ -99,11 +100,18 @@ input {
 	font-size: 14px;
 	text-decoration:none;
 }
-input:valid{
+
+input:valid {
 	box-shadow: 0 0 2px 1px $darkblue;
+	
 }
-input:invalid{
-	box-shadow: 0 0 2px 1px red;
+input:valid ~ .checkmark::before {
+    content: "✓";
+    color: green;
+}
+
+input:invalid {
+	box-shadow: 0 0 3px 2px darkred;
 }
 
 ::-webkit-input-placeholder {

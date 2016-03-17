@@ -3,23 +3,20 @@ import Footer from '../components/Footer.js';
 import Event from '../components/Event.js';
 
 class Homepage extends React.Component {
-	eventClick() {
-		console.log("testytest");
-	}
+
 	render() {
 		
-		var listEvents = this.props.events.map(function(e) {
-			var handleClick = this.eventClick.bind(this);		
+		var listEvents = this.props.events.map(function(e) {		
 			return (
 				<div key={e.key}>
-					<Event  onClick={handleClick}
+					<Event
 							name={e.name} type={e.type} host={e.host} start={e.start}
 							end={e.end} guestlist={e.guestlist} location={e.location} 
-							message={e.message} key={e.key} />
+							message={e.message} />
 				</div>
 
 			)
-		}, this);
+		});
 
 		return(
 			<div className="page">

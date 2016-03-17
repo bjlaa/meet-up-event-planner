@@ -100,7 +100,7 @@ input {
 	text-decoration:none;
 }
 input:valid{
-	box-shadow: 0 0 2px 1px green;
+	box-shadow: 0 0 2px 1px $darkblue;
 }
 input:invalid{
 	box-shadow: 0 0 2px 1px red;

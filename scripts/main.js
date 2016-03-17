@@ -16,11 +16,12 @@ import reactMixin from 'react-mixin';
 import Catalyst from 'react-catalyst';
 
 
+
 /* 
 	Firebase 
-*/
-var base = Rebase.createClass('https://meet-up-eventplanner.firebaseio.com/');
 
+var base = Rebase.createClass('https://meet-up-eventplanner.firebaseio.com/');
+*/
  
 class App extends React.Component {
 	constructor(props) {

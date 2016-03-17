@@ -78,7 +78,7 @@ class CreateEvent extends React.Component {
 							<label htmlFor="location">Where will it take place?*
 								<input name="location" ref='location' type="text" 
 								placeholder="Type in the location of your event" required 
-								onBlur={this.validateInput.bind(this)} />
+								onBlur={this.validateInput.bind(this)} autocomplete />
 								<p ref="errorlocation" className="error-message">Field is required.</p>
 							</label>
 						</div>					

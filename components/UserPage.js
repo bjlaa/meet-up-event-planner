@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from '../components/Footer.js';
 import Event from '../components/Event.js';
 
+
+
 class UserPage extends React.Component {
 	render() {
 		var userKey = this.props.activeUser.key;

@@ -41,13 +41,10 @@ class CreateEvent extends React.Component {
 	validateInput(e) {
 		var element ="error"+e.target.name;
 		if(e.target.value == "") {
+
 			this.refs[element].style.visibility = "visible";
-			this.refs.submitEvent.disabled = true;
-			this.refs.submitEvent.style.border = "2px solid darkred";
 		} else {
 			this.refs[element].style.visibility = "hidden";
-			this.refs.submitEvent.disabled = false;
-			this.refs.submitEvent.style.border = "none";
 		}	
 	}
 
@@ -109,7 +106,7 @@ class CreateEvent extends React.Component {
 						<div className="create-start">
 							<label htmlFor="start">When will it start?*
 								<input id="start" name="start" ref='start' type="datetime-local" 
-								min="2016-03-21T22:22" defaultValue="2016-03-21T22:22" required
+								min="2016-03-21T22:22" placeholderValue="2016-03-21T22:22" required
 								onBlur={this.validateInput.bind(this)} 
 								onChange={this.checkDates.bind(this)} />
 								<p ref="errorstart" className="error-message">*Field is required.</p>
@@ -120,7 +117,7 @@ class CreateEvent extends React.Component {
 						<div className="createEndEvent">
 							<label htmlFor="end">And finish?*
 								<input id="end" name="end" ref='end' type="datetime-local" required
-								min={this.refs} defaultValue="2016-03-21T22:22"
+								min={this.refs} placeholder="2016-03-21T22:22"
 								onBlur={this.validateInput.bind(this)}
 								onChange={this.checkDates.bind(this)} />
 								<p ref="errorend" className="error-message">*Field is required.</p>

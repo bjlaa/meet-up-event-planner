@@ -10,7 +10,7 @@ class CreateAccount extends React.Component {
 		var element ="error"+e.target.name;
 		if(e.target.value == "") {
 			this.refs[element].style.visibility = "visible";
-		} else {
+		} else {		
 			this.refs[element].style.visibility = "hidden";
 		}	
 	}
@@ -27,6 +27,7 @@ class CreateAccount extends React.Component {
 		}
 		this.props.addUser(newUser);
 	}
+
 
 	render() {
 		return(
@@ -48,7 +49,8 @@ class CreateAccount extends React.Component {
 							And Your Email?*
 							<input ref="email" className="create-email" type="email" 
 							name="email" placeholder="Type in your email" required
-							onBlur={this.validateInput.bind(this)} />
+							onBlur={this.validateInput.bind(this)} 
+							pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"/>
 							<div className="checkmark"></div>
 							<p ref="erroremail" className="error-message" >*Field is required.</p>
 						</label>
@@ -56,9 +58,11 @@ class CreateAccount extends React.Component {
 						<label className="label-create-password" htmlFor="password">
 							Please choose a password*
 							<input ref="password" className="create-password" 
-							type="password" name="password" placeholder="Type in your password" required
+							type="password" name="password" placeholder="Type in your password" 
+							required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
 							onBlur={this.validateInput.bind(this)} />
 							<div className="checkmark"></div>
+							<p className="indications">Should contain at least 1 number, 1 lowercase and 1 uppercase letter. Should be at least 6 characters long.</p>
 							<p ref="errorpassword" className="error-message" >*Field is required.</p>
 						</label>
 						<br/>

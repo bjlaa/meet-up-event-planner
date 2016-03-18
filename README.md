@@ -8,7 +8,11 @@ In this project I built a React Application allowing the user to create an accou
 In order to display the Meet Up Event-Planner:
 ==============================================
 
-* Download the zip file from Github and, from the command line, change directory to the file downloaded, type gulp and press the Enter key. This will launch a localserver on your machine and allow the App to be displayed.
+* Download the zip file from Github. From the command line:
+	- change directory to the folder downloaded
+	- type in npm install to create the node_modules folder,
+	- type gulp and press the Enter key 
+This will launch a localserver on your machine and allow the App to be displayed.
 
 or 
 
